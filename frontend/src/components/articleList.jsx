@@ -12,7 +12,7 @@ function ArticleList(props) {
                 <strong>{article.title}</strong>
               </h3>
               <p>{article.body}</p>
-              <p>Created At: {article.date}</p>
+              <p>Created At: {article.date} </p>
               <br></br>
             </div>
           );
