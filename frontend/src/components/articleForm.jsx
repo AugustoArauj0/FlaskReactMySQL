@@ -15,6 +15,11 @@ function ArticleForm(props) {
       props.updatedData(res)
     );
   };
+  const createArticle = () => {
+    APIService.CreateArticle({ title, body })
+      .then((res) => props.createdData(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -50,9 +55,15 @@ function ArticleForm(props) {
             }}
           ></textarea>
           <br></br>
-          <button className="btn btn-success mt-3" onClick={updateArticle}>
-            Update Post
-          </button>
+          {props.article.id ? (
+            <button className="btn btn-success mt-3" onClick={updateArticle}>
+              Update Post
+            </button>
+          ) : (
+            <button className="btn btn-success mt-3" onClick={createArticle}>
+              Create Post
+            </button>
+          )}
         </div>
       ) : null}
     </div>
